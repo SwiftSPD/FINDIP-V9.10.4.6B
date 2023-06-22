@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FindIP V4</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+  <script>
+
+    function getIP(json) {
+
+      document.getElementById("ip-address").innerHTML = json.ip;
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>My IP Address is:</h1>
+
+  <p id="ip-address">Loading...</p>
+
+  <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+</body>
+  <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+    }
+
+    
+
+    .container {
+
+      text-align: center;
+
+      margin-top: 100px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Your Location</h1>
+
+    <p id="location">Fetching location...</p>
+
+  </div>
+
+  
+
+  <script>
+
+    // Function to handle the successful retrieval of the user's location
+
+    function success(position) {
+
+      const latitude = position.coords.latitude;
+
+      const longitude = position.coords.longitude;
+
+      
+
+      // Display the location on the page
+
+      const locationElement = document.getElementById("location");
+
+      locationElement.innerHTML = `Latitude: ${latitude}<br>Longitude: ${longitude}`;
+
+    }
+
+    
+
+    // Function to handle errors in retrieving the user's location
+
+    function error() {
+
+      const locationElement = document.getElementById("location");
+
+      locationElement.innerHTML = "Unable to retrieve your location.";
+
+    }
+
+    
+
+    // Request the user's location
+
+    if (navigator.geolocation) {
+
+      navigator.geolocation.getCurrentPosition(success, error);
+
+    } else {
+
+      const locationElement = document.getElementById("location");
+
+      locationElement.innerHTML = "Geolocation is not supported by this browser.";
+
+    }
+
+  </script>
+
+</body>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<div id="map" style="height: 400px;"></div>
+<script>
+
+  // Function to handle the successful retrieval of the user's location
+
+  function success(position) {
+
+    const latitude = position.coords.latitude;
+
+    const longitude = position.coords.longitude;
+
+    // Create the map and set its view to the user's location
+
+    const map = L.map('map').setView([latitude, longitude], 13);
+
+    // Add a tile layer (you can use different tile providers)
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+      attribution: '&copy; <a href="https://swiftspd.github.io/axengineX/index.html">AX</a>',
+
+      maxZoom: 18,
+
+    }).addTo(map);
+
+    // Add a marker to the map at the user's location
+
+    L.marker([latitude, longitude]).addTo(map);
+
+  }
+
+  // Function to handle errors in retrieving the user's location
+
+  function error() {
+
+    console.log('Unable to retrieve your location.');
+
+  }
+
+  // Request the user's location
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+  } else {
+
+    console.log('Geolocation is not supported by this browser.');
+
+  }
+
+</script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<div id="map" style="height: 400px;"></div>
+
+<script>
+
+  // Function to handle the successful retrieval of the user's location
+
+  function success(position) {
+
+    const latitude = position.coords.latitude;
+
+    const longitude = position.coords.longitude;
+
+    // Create the map and set its view to the user's location
+
+    const map = L.map('map').setView([latitude, longitude], 13);
+
+    // Add a tile layer (you can use different tile providers)
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+      attribution: '&copy; <a href="https://swiftspd.github.io/axengineX/index.html">AX</a>',
+
+      maxZoom: 18,
+
+    }).addTo(map);
+
+    // Add a marker to the map at the user's location
+
+    L.marker([latitude, longitude]).addTo(map);
+
+  }
+
+  // Function to handle errors in retrieving the user's location
+
+  function error() {
+
+    console.log('Unable to retrieve your location.');
+
+  }
+
+  // Request the user's location
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+  } else {
+
+    console.log('Geolocation is not supported by this browser.');
+
+  }
+
+</script>
+
+<script>
+
+  // Function to handle the successful retrieval of the user's location
+
+  function success(position) {
+
+    const latitude = position.coords.latitude;
+
+    const longitude = position.coords.longitude;
+
+    // Create the map and set its view to the user's location
+
+    const map = L.map('map').setView([latitude, longitude], 13);
+
+    // Add a tile layer (you can use different tile providers)
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+      attribution: '&copy; <a href="https://swiftspd.github.io/axengineX/index.html">AX</a> contributors',
+
+      maxZoom: 18,
+
+    }).addTo(map);
+
+    // Add a marker to the map at the user's location
+
+    L.marker([latitude, longitude]).addTo(map);
+
+  }
+
+  // Function to handle errors in retrieving the user's location
+
+  function error() {
+
+    console.log('Unable to retrieve your location.');
+
+  }
+
+  // Request the user's location
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+  } else {
+
+    console.log('Geolocation is not supported by this browser.');
+
+  }
+
+</script>
+
+<style>
+
+  #map {
+
+    height: 300px; /* Adjust the height to your desired size */
+
+    width: 80%; /* Adjust the width to your desired size */
+
+    margin: 0 auto; /* Center the map horizontally */
+
+  }
+
+</style>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+    
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+    
+    th {
+      font-weight: bold;
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Device Information</h1>
+    <table>
+      <tr>
+        <th>Property</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Browser Name</td>
+        <td id="browserName"></td>
+      </tr>
+      <tr>
+        <td>Browser Version</td>
+        <td id="browserVersion"></td>
+      </tr>
+      <tr>
+        <td>Operating System</td>
+        <td id="os"></td>
+      </tr>
+      <tr>
+        <td>Device Vendor</td>
+        <td id="deviceVendor"></td>
+      </tr>
+      <tr>
+        <td>Device Model</td>
+        <td id="deviceModel"></td>
+      </tr>
+      <tr>
+        <td>Screen Resolution</td>
+        <td id="screenResolution"></td>
+      </tr>
+    </table>
+  </div>
+  
+  <script>
+    document.getElementById("browserName").textContent = navigator.appName;
+    document.getElementById("browserVersion").textContent = navigator.appVersion;
+    document.getElementById("os").textContent = navigator.platform;
+    document.getElementById("deviceVendor").textContent = navigator.vendor;
+    document.getElementById("deviceModel").textContent = navigator.userAgent;
+    document.getElementById("screenResolution").textContent = window.screen.width + "x" + window.screen.height;
+  </script>
+</body>
+</html>
+
+
+</body>
+</html>
